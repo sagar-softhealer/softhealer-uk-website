@@ -2,9 +2,6 @@ backend:
   name: github
   repo: sagar-softhealer/softhealer-uk-website
   branch: main
-  # Sveltia supports logging in directly with a Personal Access Token (PAT) 
-  # or setting up an OAuth gateway.
-  auth_type: implicit
 
 media_folder: "public/images"
 public_folder: "/images"
