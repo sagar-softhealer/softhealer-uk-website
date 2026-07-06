@@ -2,7 +2,10 @@
 ---
 <header class="navbar-header">
   <div class="container navbar-container">
-    <a href="/" class="logo">Softhealer<span>UK</span></a>
+    <a href="/" class="logo">
+      <img src="/images/logo-color.png" alt="Softhealer Logo" />
+      <span class="uk-text">UK</span>
+    </a>
     
     <!-- Mobile Hamburger Menu Button -->
     <button class="mobile-toggle" aria-label="Toggle menu" id="mobileToggle">
@@ -62,15 +65,25 @@
   }
 
   .logo {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--dark);
-    letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
   }
 
-  .logo span {
+  .logo img {
+    height: 38px;
+    width: auto;
+  }
+
+  .logo .uk-text {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 800;
     color: var(--primary);
+    letter-spacing: -0.5px;
+    line-height: 1;
+    display: inline-block;
   }
 
   .nav-menu {

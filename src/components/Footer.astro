@@ -4,7 +4,10 @@ const currentYear = new Date().getFullYear();
 <footer class="footer">
   <div class="container footer-grid">
     <div class="footer-brand">
-      <a href="/" class="logo">Softhealer<span>UK</span></a>
+      <a href="/" class="logo">
+        <img src="/images/logo-white.png" alt="Softhealer Logo" />
+        <span class="uk-text">UK</span>
+      </a>
       <p class="brand-desc">
         Empowering UK businesses with custom Odoo ERP integrations, bespoke web designs, and cutting-edge business automation pipelines.
       </p>
@@ -91,17 +94,26 @@ const currentYear = new Date().getFullYear();
   }
 
   .footer-brand .logo {
-    font-family: var(--font-heading);
-    font-size: 1.75rem;
-    font-weight: 800;
-    color: var(--white);
-    letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
     margin-bottom: 16px;
-    display: inline-block;
   }
 
-  .footer-brand .logo span {
+  .footer-brand .logo img {
+    height: 38px;
+    width: auto;
+  }
+
+  .footer-brand .logo .uk-text {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 800;
     color: var(--secondary);
+    letter-spacing: -0.5px;
+    line-height: 1;
+    display: inline-block;
   }
 
   .brand-desc {
