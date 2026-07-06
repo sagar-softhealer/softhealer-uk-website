@@ -1,4 +1,9 @@
 ---
+import { getCollection } from 'astro:content';
+
+const allPages = await getCollection('pages');
+const standardPages = ['home', 'about', 'services', 'contact'];
+const extraPages = allPages.filter(page => !standardPages.includes(page.id));
 ---
 <header class="navbar-header">
   <div class="container navbar-container">
@@ -20,6 +25,9 @@
       <a href="/about" class="nav-link">About</a>
       <a href="/services" class="nav-link">Services</a>
       <a href="/contact" class="nav-link">Contact</a>
+      {extraPages.map(page => (
+        <a href={`/${page.id}`} class="nav-link">{page.data.title}</a>
+      ))}
       <a href="/contact" class="btn btn-primary nav-cta">Free Consultation</a>
     </nav>
   </div>

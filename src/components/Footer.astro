@@ -1,5 +1,10 @@
 ---
+import { getCollection } from 'astro:content';
+
 const currentYear = new Date().getFullYear();
+const allPages = await getCollection('pages');
+const standardPages = ['home', 'about', 'services', 'contact'];
+const extraPages = allPages.filter(page => !standardPages.includes(page.id));
 ---
 <footer class="footer">
   <div class="container footer-grid">
@@ -25,6 +30,9 @@ const currentYear = new Date().getFullYear();
         <li><a href="/about">About Us</a></li>
         <li><a href="/services">Services</a></li>
         <li><a href="/contact">Contact</a></li>
+        {extraPages.map(page => (
+          <li><a href={`/${page.id}`}>{page.data.title}</a></li>
+        ))}
       </ul>
     </div>
 
