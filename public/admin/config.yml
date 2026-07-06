@@ -1,0 +1,22 @@
+backend:
+  name: github
+  repo: sagar-softhealer/softhealer-uk-website
+  branch: main
+  # Sveltia supports logging in directly with a Personal Access Token (PAT) 
+  # or setting up an OAuth gateway.
+  auth_type: implicit
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    folder: "src/content/pages"
+    create: true
+    format: "frontmatter"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
