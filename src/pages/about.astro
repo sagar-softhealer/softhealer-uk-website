@@ -5,7 +5,7 @@ import Layout from '../layouts/Layout.astro';
 <Layout>
   <!-- Page Header -->
   <section class="page-header">
-    <div class="container header-container">
+    <div class="container header-container animate-fade-in">
       <span class="sub-title">Who We Are</span>
       <h1>About Softhealer UK</h1>
       <p>Pioneering robust Odoo implementation, customization, and modern web application development.</p>
@@ -15,26 +15,26 @@ import Layout from '../layouts/Layout.astro';
   <!-- Company Story -->
   <section class="about-story">
     <div class="container story-grid">
-      <div class="story-content">
+      <div class="story-content animate-fade-in">
         <h2>Driving Business Automation Across the UK</h2>
         <p>Softhealer UK is a premier technology consulting firm specializing in customized Enterprise Resource Planning (ERP) integrations and cloud-native web engineering. We help organizations streamline operations, eliminate data silos, and scale efficiently.</p>
         <p>Whether you are a growing mid-sized distributor in London, a manufacturing plant in Birmingham, or an e-commerce startup looking to automate order fulfillment, our local consultants analyze your workflows and design tailored solutions using Odoo's powerful suite.</p>
       </div>
       <div class="story-stats">
-        <div class="stat-card">
-          <span class="number">10+</span>
+        <div class="stat-card animate-fade-in delay-100">
+          <span class="number"><span class="counter" data-target="10">0</span>+</span>
           <span class="label">Years of ERP Experience</span>
         </div>
-        <div class="stat-card">
-          <span class="number">150+</span>
+        <div class="stat-card animate-fade-in delay-200">
+          <span class="number"><span class="counter" data-target="150">0</span>+</span>
           <span class="label">Custom Modules Created</span>
         </div>
-        <div class="stat-card">
-          <span class="number">99%</span>
+        <div class="stat-card animate-fade-in delay-300">
+          <span class="number"><span class="counter" data-target="99">0</span>%</span>
           <span class="label">On-Time SLA Delivery</span>
         </div>
-        <div class="stat-card">
-          <span class="number">50+</span>
+        <div class="stat-card animate-fade-in delay-400">
+          <span class="number"><span class="counter" data-target="50">0</span>+</span>
           <span class="label">Active Enterprise Clients</span>
         </div>
       </div>
@@ -44,22 +44,22 @@ import Layout from '../layouts/Layout.astro';
   <!-- Core Values -->
   <section class="values">
     <div class="container">
-      <div class="section-title">
+      <div class="section-title animate-fade-in">
         <h2>Our Core Values</h2>
         <p>The principles that guide our team and define our relationships with clients.</p>
       </div>
       <div class="values-grid">
-        <div class="value-card">
+        <div class="value-card animate-fade-in delay-100">
           <div class="value-icon">🤝</div>
           <h3>Customer First</h3>
           <p>We work as an extension of your internal team, understanding your specific business model and pain points before writing a single line of code.</p>
         </div>
-        <div class="value-card">
+        <div class="value-card animate-fade-in delay-200">
           <div class="value-icon">💎</div>
           <h3>Uncompromised Quality</h3>
           <p>We write clean, documented, and fully tested Odoo modules and web code that follow international coding standards and pass strict security audits.</p>
         </div>
-        <div class="value-card">
+        <div class="value-card animate-fade-in delay-300">
           <div class="value-icon">🚀</div>
           <h3>Continuous Innovation</h3>
           <p>We stay at the forefront of modern web engineering (like Astro) and artificial intelligence workflows (like MCP and automated content drafting).</p>
@@ -67,6 +67,47 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </div>
   </section>
+
+  <!-- Counting Animation Script -->
+  <script>
+    const animateCounters = () => {
+      const counters = document.querySelectorAll('.counter');
+      const speed = 100; // lower number = faster animation
+
+      counters.forEach(counter => {
+        const updateCount = () => {
+          const target = +counter.getAttribute('data-target')!;
+          const count = +counter.textContent!;
+          
+          const increment = Math.ceil(target / speed);
+
+          if (count < target) {
+            counter.textContent = String(count + increment);
+            setTimeout(updateCount, 15);
+          } else {
+            counter.textContent = String(target);
+          }
+        };
+        
+        updateCount();
+      });
+    };
+
+    // Trigger animation using IntersectionObserver when stats section comes in view
+    const statsSection = document.querySelector('.story-stats');
+    if (statsSection) {
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateCounters();
+            observer.unobserve(entry.target); // Run animation only once
+          }
+        });
+      }, { threshold: 0.1 });
+
+      observer.observe(statsSection);
+    }
+  </script>
 </Layout>
 
 <style>
