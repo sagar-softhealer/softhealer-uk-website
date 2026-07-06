@@ -1,0 +1,59 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const pages = await getCollection('pages');
+  return pages.map(page => ({
+    params: { slug: page.id },
+    props: { page },
+  }));
+}
+
+const { page } = Astro.props;
+const { Content } = await render(page);
+---
+
+<Layout>
+  <section class="page-header">
+    <div class="container header-container">
+      <h1 class="animate-fade-in">{page.data.title}</h1>
+      {page.data.description && <p class="animate-fade-in delay-100">{page.data.description}</p>}
+    </div>
+  </section>
+
+  <section class="page-content">
+    <div class="container animate-fade-in delay-200">
+      <article class="prose">
+        <Content />
+      </article>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-content {
+    padding: 80px 0;
+    background-color: var(--white);
+  }
+
+  .prose {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--dark);
+  }
+
+  .prose :global(h2) {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    margin-top: 32px;
+    margin-bottom: 16px;
+    color: var(--dark);
+  }
+
+  .prose :global(p) {
+    margin-bottom: 20px;
+  }
+</style>
