@@ -1,11 +1,566 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<Welcome />
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-container">
+      <div class="hero-content">
+        <span class="badge">Odoo & Web Specialists</span>
+        <h1>We Build High-Performance Digital Solutions</h1>
+        <p>Accelerate your business with custom Odoo ERP integrations, lightning-fast Astro websites, and seamless workflows tailored for the UK market.</p>
+        <div class="hero-actions">
+          <a href="/contact" class="btn btn-primary">Free Consultation</a>
+          <a href="/services" class="btn btn-secondary">Explore Services</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="visual-card main-card">
+          <div class="card-header">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="title">Odoo Dashboard</span>
+          </div>
+          <div class="card-body">
+            <div class="bar-chart">
+              <div class="bar h-60"></div>
+              <div class="bar h-80"></div>
+              <div class="bar h-40"></div>
+              <div class="bar h-90"></div>
+            </div>
+            <div class="stats-row">
+              <div class="stat-item">
+                <span class="label">Conversion</span>
+                <span class="value">+24.5%</span>
+              </div>
+              <div class="stat-item">
+                <span class="label">Efficiency</span>
+                <span class="value">98.2%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="visual-card floating-card">
+          <span class="icon">🚀</span>
+          <div>
+            <h4>Astro Speed</h4>
+            <p>100/100 Mobile Score</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats">
+    <div class="container stats-grid">
+      <div class="stat-box">
+        <h3>50+</h3>
+        <p>Successful Odoo Deployments</p>
+      </div>
+      <div class="stat-box">
+        <h3>99%</h3>
+        <p>Client Satisfaction Rate</p>
+      </div>
+      <div class="stat-box">
+        <h3>10x</h3>
+        <p>Faster Page Load Speeds</p>
+      </div>
+      <div class="stat-box">
+        <h3>24/7</h3>
+        <p>Dedicated Support & SLA</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Services Overview Grid -->
+  <section class="features">
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Core Expertise</h2>
+        <p>Custom software engineering and enterprise resource planning designed to scale your business.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="card-icon">⚙️</div>
+          <h3>Odoo Integration</h3>
+          <p>End-to-end Odoo implementation, custom module development, and database migrations for UK enterprises.</p>
+          <a href="/services" class="card-link">Learn More &rarr;</a>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon">⚡</div>
+          <h3>Static-First Web</h3>
+          <p>Lightweight, SEO-optimized marketing websites built with Astro. Ship less JavaScript, rank higher on Google.</p>
+          <a href="/services" class="card-link">Learn More &rarr;</a>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon">🤖</div>
+          <h3>AI & Automation</h3>
+          <p>Connecting your systems with AI agents and MCP workflows so you can draft and publish content automatically.</p>
+          <a href="/services" class="card-link">Learn More &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Showcase Section -->
+  <section class="showcase">
+    <div class="container showcase-grid">
+      <div class="showcase-content">
+        <h2>Streamline Your Workflows With Next-Gen CMS</h2>
+        <p>No backend servers, no complex databases to manage. We combine static-first frontend frameworks with Git-based Headless CMS (like Sveltia and Decap) to provide non-technical editors with a Microsoft Word-like writing experience.</p>
+        <ul class="showcase-list">
+          <li><strong>Git-Based:</strong> Content is saved directly as files in GitHub.</li>
+          <li><strong>AI Friendly:</strong> Easily connect AI agents to draft and review pages.</li>
+          <li><strong>Cloud Deploy:</strong> Automatic instant deployment via Cloudflare.</li>
+        </ul>
+      </div>
+      <div class="showcase-graphic">
+        <div class="graphic-element doc-icon">📄</div>
+        <div class="graphic-element arrow">&rarr;</div>
+        <div class="graphic-element git-icon">🐙</div>
+        <div class="graphic-element arrow">&rarr;</div>
+        <div class="graphic-element cloud-icon">☁️</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action Section -->
+  <section class="cta">
+    <div class="container cta-container">
+      <h2>Ready to transform your digital presence?</h2>
+      <p>Schedule a 30-minute discovery call with our UK-based consultants to discuss your Odoo or web development roadmap.</p>
+      <a href="/contact" class="btn btn-secondary">Get Free Estimate</a>
+    </div>
+  </section>
 </Layout>
+
+<style>
+  /* Hero Section */
+  .hero {
+    padding: 100px 0 80px 0;
+    background: radial-gradient(circle at 80% 20%, rgba(83, 74, 183, 0.08) 0%, rgba(255, 255, 255, 0) 50%);
+    overflow: hidden;
+  }
+
+  .hero-container {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    gap: 60px;
+  }
+
+  @media (max-width: 992px) {
+    .hero-container {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: 40px;
+    }
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  @media (max-width: 992px) {
+    .hero-content {
+      align-items: center;
+    }
+  }
+
+  .badge {
+    background-color: var(--primary-light);
+    color: var(--primary);
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .hero-content h1 {
+    font-size: 3.5rem;
+    line-height: 1.15;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+  }
+
+  @media (max-width: 576px) {
+    .hero-content h1 {
+      font-size: 2.5rem;
+    }
+  }
+
+  .hero-content p {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+    max-width: 560px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+  }
+
+  @media (max-width: 576px) {
+    .hero-actions {
+      flex-direction: column;
+      width: 100%;
+    }
+    .hero-actions .btn {
+      width: 100%;
+    }
+  }
+
+  /* Hero Visual Element */
+  .hero-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 380px;
+  }
+
+  .visual-card {
+    background-color: var(--white);
+    border-radius: 16px;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border);
+    transition: var(--transition);
+  }
+
+  .main-card {
+    width: 320px;
+    padding: 24px;
+    transform: rotate(-3deg);
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 16px;
+    margin-bottom: 20px;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+
+  .dot.red { background-color: #ef4444; }
+  .dot.yellow { background-color: #eab308; }
+  .dot.green { background-color: #22c55e; }
+
+  .card-header .title {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-left: 6px;
+  }
+
+  .bar-chart {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 120px;
+    margin-bottom: 20px;
+  }
+
+  .bar {
+    width: 45px;
+    background-color: var(--primary-light);
+    border-radius: 6px;
+    transition: var(--transition);
+  }
+
+  .bar:hover {
+    background-color: var(--primary);
+  }
+
+  .h-40 { height: 40%; }
+  .h-60 { height: 60%; }
+  .h-80 { height: 80%; }
+  .h-90 { height: 90%; }
+
+  .stats-row {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+  }
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .stat-item .label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+
+  .stat-item .value {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--dark);
+  }
+
+  .floating-card {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 24px;
+    transform: rotate(6deg);
+  }
+
+  @media (max-width: 576px) {
+    .floating-card {
+      position: relative;
+      bottom: auto;
+      right: auto;
+      margin-top: 24px;
+      transform: none;
+    }
+    .hero-visual {
+      flex-direction: column;
+      min-height: auto;
+    }
+    .main-card {
+      transform: none;
+    }
+  }
+
+  .floating-card .icon {
+    font-size: 2rem;
+  }
+
+  .floating-card h4 {
+    font-size: 0.95rem;
+    margin-bottom: 2px;
+  }
+
+  .floating-card p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  /* Stats Section */
+  .stats {
+    background-color: var(--white);
+    padding: 60px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .stat-box h3 {
+    font-size: 3rem;
+    color: var(--primary);
+    margin-bottom: 6px;
+  }
+
+  .stat-box p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+
+  /* Features Section */
+  .features {
+    padding: 100px 0;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  @media (max-width: 992px) {
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .feature-card {
+    background-color: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-light);
+  }
+
+  .card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 24px;
+  }
+
+  .feature-card h3 {
+    font-size: 1.35rem;
+    margin-bottom: 12px;
+  }
+
+  .feature-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 24px;
+  }
+
+  .card-link {
+    font-weight: 600;
+    color: var(--primary);
+    font-size: 0.95rem;
+  }
+
+  /* Showcase Section */
+  .showcase {
+    background-color: var(--white);
+    padding: 100px 0;
+  }
+
+  .showcase-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    gap: 60px;
+  }
+
+  @media (max-width: 992px) {
+    .showcase-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .showcase-content h2 {
+    font-size: 2.25rem;
+    margin-bottom: 20px;
+  }
+
+  .showcase-content p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 24px;
+  }
+
+  .showcase-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .showcase-list li {
+    position: relative;
+    padding-left: 28px;
+    font-size: 0.95rem;
+  }
+
+  .showcase-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--secondary);
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+
+  .showcase-graphic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    background-color: var(--light);
+    border-radius: 20px;
+    padding: 60px 40px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .graphic-element {
+    background-color: var(--white);
+    box-shadow: var(--shadow-md);
+    border-radius: 12px;
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+  }
+
+  .graphic-element.arrow {
+    background: transparent;
+    box-shadow: none;
+    width: auto;
+    height: auto;
+    font-size: 1.5rem;
+    color: var(--text-muted);
+  }
+
+  /* Call to Action (CTA) */
+  .cta {
+    padding: 80px 0;
+    background-color: var(--primary);
+    color: var(--white);
+    text-align: center;
+  }
+
+  .cta-container {
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .cta h2 {
+    color: var(--white);
+    font-size: 2.25rem;
+    letter-spacing: -0.5px;
+  }
+
+  .cta p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.15rem;
+    margin-bottom: 12px;
+  }
+</style>

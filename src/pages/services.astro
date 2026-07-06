@@ -1,0 +1,234 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container header-container">
+      <span class="sub-title">What We Do</span>
+      <h1>Our Professional Services</h1>
+      <p>Tailored enterprise software, modern web portals, and system integrations designed to fuel your business growth.</p>
+    </div>
+  </section>
+
+  <!-- Service Catalog Grid -->
+  <section class="services-catalog">
+    <div class="container">
+      <div class="services-grid">
+        <!-- Service 1 -->
+        <div class="service-card">
+          <span class="icon">💼</span>
+          <h3>Odoo Implementation & Consulting</h3>
+          <p>We guide you through the complete ERP lifecycle. From gap analysis and system mapping to migration and live go-live support, we ensure a seamless integration of Odoo modules.</p>
+          <ul class="bullet-list">
+            <li>Sales, CRM, & Pipeline automation</li>
+            <li>Inventory, Warehousing & Barcode systems</li>
+            <li>Accounting configuration & UK VAT compliance</li>
+          </ul>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="service-card">
+          <span class="icon">💻</span>
+          <h3>Custom Module Development</h3>
+          <p>Standard Odoo modules don't always fit unique operational workflows. We build custom Python apps and configure Odoo views to automate manual workarounds.</p>
+          <ul class="bullet-list">
+            <li>Bespoke reporting engine models</li>
+            <li>Automated business rules and actions</li>
+            <li>UI enhancements and Kanban alterations</li>
+          </ul>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="service-card">
+          <span class="icon">⚡</span>
+          <h3>Modern Astro Frontends</h3>
+          <p>We build extremely lightweight, static-first websites using Astro. We deliver blazing-fast page load times and perfect Core Web Vitals to improve search ranking.</p>
+          <ul class="bullet-list">
+            <li>SEO-friendly landing pages and corporate sites</li>
+            <li>Decoupled headless CMS (Decap / Sveltia)</li>
+            <li>Custom interactive calculators and forms</li>
+          </ul>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="service-card">
+          <span class="icon">🔌</span>
+          <h3>API & Payment Integrations</h3>
+          <p>We connect Odoo to third-party services like Stripe, PayPal, HubSpot, WooCommerce, Shopify, or local UK shipping carriers like Royal Mail and DPD.</p>
+          <ul class="bullet-list">
+            <li>Secure tokenized payment gateways</li>
+            <li>Bi-directional inventory sync modules</li>
+            <li>RESTful API custom middleware</li>
+          </ul>
+        </div>
+
+        <!-- Service 5 -->
+        <div class="service-card">
+          <span class="icon">🤖</span>
+          <h3>AI Agent Content Workflows</h3>
+          <p>Leverage the power of generative AI and Model Context Protocol (MCP) to manage your web content, automate support queries, or draft blog posts directly to your GitHub repo.</p>
+          <ul class="bullet-list">
+            <li>GitHub MCP server integration</li>
+            <li>AI content drafting and editor preview</li>
+            <li>Automated web publication pipelines</li>
+          </ul>
+        </div>
+
+        <!-- Service 6 -->
+        <div class="service-card consultation-card">
+          <h3>Need a custom solution?</h3>
+          <p>Get a direct consultation with one of our principal architects to design a bespoke software stack for your business.</p>
+          <a href="/contact" class="btn btn-secondary">Get a Custom Quote</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Page Header */
+  .page-header {
+    background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+    color: var(--white);
+    padding: 80px 0;
+    text-align: center;
+  }
+
+  .header-container {
+    max-width: 800px;
+  }
+
+  .page-header h1 {
+    font-size: 3rem;
+    color: var(--white);
+    margin-bottom: 16px;
+    letter-spacing: -1px;
+  }
+
+  .page-header p {
+    font-size: 1.2rem;
+    color: #cbd5e1;
+    line-height: 1.5;
+  }
+
+  .sub-title {
+    color: var(--secondary);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    display: inline-block;
+    margin-bottom: 12px;
+  }
+
+  /* Catalog Grid */
+  .services-catalog {
+    padding: 100px 0;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  @media (max-width: 992px) {
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .service-card {
+    background-color: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 36px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+
+  .service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-light);
+  }
+
+  .service-card .icon {
+    font-size: 2.5rem;
+    margin-bottom: 24px;
+    display: inline-block;
+  }
+
+  .service-card h3 {
+    font-size: 1.35rem;
+    margin-bottom: 16px;
+  }
+
+  .service-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  .bullet-list {
+    list-style: none;
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .bullet-list li {
+    font-size: 0.9rem;
+    color: var(--text);
+    position: relative;
+    padding-left: 20px;
+  }
+
+  .bullet-list li::before {
+    content: "•";
+    color: var(--primary);
+    font-size: 1.25rem;
+    position: absolute;
+    left: 0;
+    top: -2px;
+  }
+
+  /* Consultation Card specific styles */
+  .consultation-card {
+    background-color: var(--primary);
+    color: var(--white);
+    border: none;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .consultation-card h3 {
+    color: var(--white);
+    font-size: 1.6rem;
+    margin-bottom: 16px;
+  }
+
+  .consultation-card p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1rem;
+    margin-bottom: 28px;
+  }
+
+  .consultation-card .btn {
+    width: 100%;
+  }
+</style>

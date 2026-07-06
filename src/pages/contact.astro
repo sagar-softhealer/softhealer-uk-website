@@ -1,0 +1,261 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container header-container">
+      <span class="sub-title">Connect With Us</span>
+      <h1>Start Your Journey</h1>
+      <p>Have questions about Odoo customization or modern website deployment? Fill out the form and our consultants will get back to you within 24 hours.</p>
+    </div>
+  </section>
+
+  <!-- Contact Section Container -->
+  <section class="contact-section">
+    <div class="container contact-grid">
+      <!-- Contact Information Panel -->
+      <div class="contact-info-panel">
+        <h2>Get in Touch Directly</h2>
+        <p class="panel-desc">We support UK-based businesses with onsite consultations in London and the Midlands, or remote support worldwide.</p>
+        
+        <div class="info-list">
+          <div class="info-item">
+            <span class="icon">📍</span>
+            <div>
+              <h4>Our Location</h4>
+              <p>Level 3, 207 Regent Street, London, W1B 3HH</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <span class="icon">✉️</span>
+            <div>
+              <h4>Email Address</h4>
+              <p><a href="mailto:info@softhealer.co.uk">info@softhealer.co.uk</a></p>
+            </div>
+          </div>
+          <div class="info-item">
+            <span class="icon">📞</span>
+            <div>
+              <h4>Phone Number</h4>
+              <p><a href="tel:+442079460192">+44 20 7946 0192</a></p>
+            </div>
+          </div>
+          <div class="info-item">
+            <span class="icon">🕒</span>
+            <div>
+              <h4>Office Hours</h4>
+              <p>Monday - Friday: 9:00 AM - 5:30 PM (BST)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form Panel -->
+      <div class="contact-form-panel">
+        <h3>Request a Free Quote</h3>
+        <form method="POST" action="#" class="styled-form">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="e.g. Sagar Tilala" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="e.g. yourname@company.com" required />
+          </div>
+
+          <div class="form-group">
+            <label for="service">Interested Service</label>
+            <select id="service" name="service">
+              <option value="odoo-impl">Odoo ERP Implementation</option>
+              <option value="odoo-cust">Custom Module Development</option>
+              <option value="web-dev">Modern Astro Web Development</option>
+              <option value="integration">API & Payment Integrations</option>
+              <option value="other">Other consultation</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Project Description</label>
+            <textarea id="message" name="message" rows="5" placeholder="Tell us about your project requirements..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary form-submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Page Header */
+  .page-header {
+    background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+    color: var(--white);
+    padding: 80px 0;
+    text-align: center;
+  }
+
+  .header-container {
+    max-width: 800px;
+  }
+
+  .page-header h1 {
+    font-size: 3rem;
+    color: var(--white);
+    margin-bottom: 16px;
+    letter-spacing: -1px;
+  }
+
+  .page-header p {
+    font-size: 1.2rem;
+    color: #cbd5e1;
+    line-height: 1.5;
+  }
+
+  .sub-title {
+    color: var(--secondary);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    display: inline-block;
+    margin-bottom: 12px;
+  }
+
+  /* Contact Grid */
+  .contact-section {
+    padding: 100px 0;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  @media (max-width: 992px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+  }
+
+  .contact-info-panel h2 {
+    font-size: 2rem;
+    margin-bottom: 16px;
+  }
+
+  .panel-desc {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    margin-bottom: 36px;
+  }
+
+  .info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .info-item .icon {
+    font-size: 1.8rem;
+    background-color: var(--primary-light);
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    flex-shrink: 0;
+  }
+
+  .info-item h4 {
+    font-size: 1.05rem;
+    margin-bottom: 4px;
+  }
+
+  .info-item p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+  }
+
+  .info-item a:hover {
+    color: var(--primary);
+  }
+
+  /* Form Styling */
+  .contact-form-panel {
+    background-color: var(--white);
+    padding: 48px;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-lg);
+  }
+
+  @media (max-width: 576px) {
+    .contact-form-panel {
+      padding: 24px;
+    }
+  }
+
+  .contact-form-panel h3 {
+    font-size: 1.5rem;
+    margin-bottom: 28px;
+  }
+
+  .styled-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .form-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--dark-gray);
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 12px 16px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background-color: var(--light);
+    color: var(--text);
+    transition: var(--transition);
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    background-color: var(--white);
+    box-shadow: 0 0 0 3px rgba(83, 74, 183, 0.15);
+  }
+
+  .form-submit {
+    margin-top: 12px;
+    border: none;
+  }
+</style>
