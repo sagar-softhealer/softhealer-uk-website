@@ -30,6 +30,7 @@ const extraPages = allPages.filter(page => !standardPages.includes(page.id));
         <li><a href="/about">About Us</a></li>
         <li><a href="/services">Services</a></li>
         <li><a href="/contact">Contact</a></li>
+        <li><a href="/blog">Blog</a></li>
         {extraPages.map(page => (
           <li><a href={`/${page.id}`}>{page.data.title}</a></li>
         ))}
