@@ -43,3 +43,45 @@ collections_config:
     path: src/content/testimonials
     output: true
     icon: star
+
+# Reusable Section Block Structures for Visual Page Builder
+_structures:
+  sections:
+    values:
+      - label: Hero Banner
+        icon: view_quilt
+        value:
+          _type: hero
+          title: "Enterprise Software & Web Portals"
+          description: "We build bespoke software integrations and modern web frontends."
+          button_text: "Get Started"
+          button_url: "/contact"
+      
+      - label: Features Grid
+        icon: grid_on
+        value:
+          _type: features
+          title: "Our Services & Capabilities"
+          items:
+            - title: "Service Item"
+              icon: "💼"
+              description: "Short description of this service."
+
+      - label: Working Process Steps
+        icon: linear_scale
+        value:
+          _type: process
+          title: "Our Working Process"
+          steps:
+            - step_num: "01"
+              title: "Discovery"
+              description: "We analyze your business workflows."
+
+      - label: Call to Action (CTA)
+        icon: smart_button
+        value:
+          _type: cta
+          title: "Ready to transform your digital presence?"
+          description: "Schedule a free consultation call."
+          button_text: "Get Free Estimate"
+          button_url: "/contact"
