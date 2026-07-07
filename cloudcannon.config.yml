@@ -1,0 +1,45 @@
+# CloudCannon Configuration File
+# Reference: https://cloudcannon.com/documentation/articles/configuration-reference/
+
+collections_config:
+  pages:
+    name: Pages
+    path: src/content/pages
+    output: true
+    icon: description
+  
+  blogs:
+    name: Blog Posts
+    path: src/content/blogs
+    output: true
+    icon: article
+
+  careers:
+    name: Careers
+    path: src/content/careers
+    output: true
+    icon: work
+
+  portfolios:
+    name: Portfolios
+    path: src/content/portfolios
+    output: true
+    icon: business
+
+  team:
+    name: Team Members
+    path: src/content/team
+    output: true
+    icon: people
+
+  faq:
+    name: FAQs
+    path: src/content/faq
+    output: true
+    icon: help
+
+  testimonials:
+    name: Testimonials
+    path: src/content/testimonials
+    output: true
+    icon: star

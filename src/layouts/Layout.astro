@@ -1,6 +1,10 @@
 ---
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+import themeSettings from '../content/settings/theme.json';
+
+const primaryColor = themeSettings.primary_color || '#534ab7';
+const secondaryColor = themeSettings.secondary_color || '#0ea5e9';
 ---
 <!doctype html>
 <html lang="en">
@@ -51,13 +55,13 @@ import Footer from '../components/Footer.astro';
 	</body>
 </html>
 
-<style is:global>
+<style is:global define:vars={{ primaryColor, secondaryColor }}>
 	:root {
-		--primary: #534ab7;
-		--primary-hover: #4338ca;
+		--primary: var(--primaryColor);
+		--primary-hover: var(--primaryColor);
 		--primary-light: #eef2ff;
-		--secondary: #0ea5e9;
-		--secondary-hover: #0284c7;
+		--secondary: var(--secondaryColor);
+		--secondary-hover: var(--secondaryColor);
 		--dark: #0f172a;
 		--dark-gray: #334155;
 		--light: #f8fafc;
