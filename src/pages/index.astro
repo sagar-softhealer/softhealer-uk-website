@@ -6,6 +6,15 @@ const homePage = await getEntry('pages', 'home');
 const { Content } = homePage ? await render(homePage) : { Content: null };
 const title = homePage?.data.title || "We Build High-Performance Digital Solutions";
 const description = homePage?.data.description || "Accelerate your business with custom Odoo ERP integrations, lightning-fast Astro websites, and seamless workflows tailored for the UK market.";
+
+// Showcase Section dynamic bindings
+const showcaseTitle = homePage?.data.showcase_title || "Streamline Your Workflows With Next-Gen CMS";
+const showcaseDescription = homePage?.data.showcase_description || "No backend servers, no complex databases to manage. We combine static-first frontend frameworks...";
+const showcaseFeatures = homePage?.data.showcase_features || [
+  { title: "Git-Based", description: "Content is saved directly as files in GitHub." },
+  { title: "AI Friendly", description: "Easily connect AI agents to draft and review pages." },
+  { title: "Cloud Deploy", description: "Automatic instant deployment via Cloudflare." }
+];
 ---
 
 <Layout>
@@ -120,12 +129,12 @@ const description = homePage?.data.description || "Accelerate your business with
   <section class="showcase">
     <div class="container showcase-grid">
       <div class="showcase-content">
-        <h2>Streamline Your Workflows With Next-Gen CMS</h2>
-        <p>No backend servers, no complex databases to manage. We combine static-first frontend frameworks with Git-based Headless CMS (like Sveltia and Decap) to provide non-technical editors with a Microsoft Word-like writing experience.</p>
+        <h2>{showcaseTitle}</h2>
+        <p>{showcaseDescription}</p>
         <ul class="showcase-list">
-          <li><strong>Git-Based:</strong> Content is saved directly as files in GitHub.</li>
-          <li><strong>AI Friendly:</strong> Easily connect AI agents to draft and review pages.</li>
-          <li><strong>Cloud Deploy:</strong> Automatic instant deployment via Cloudflare.</li>
+          {showcaseFeatures.map((feat) => (
+            <li><strong>{feat.title}:</strong> {feat.description}</li>
+          ))}
         </ul>
       </div>
       <div class="showcase-graphic">

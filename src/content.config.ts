@@ -7,6 +7,12 @@ const pages = defineCollection({
     title: z.string(),
     description: z.string().optional(),
     date: z.date().or(z.string()).optional(),
+    showcase_title: z.string().optional(),
+    showcase_description: z.string().optional(),
+    showcase_features: z.array(z.object({
+      title: z.string(),
+      description: z.string(),
+    })).optional(),
   }),
 });
 

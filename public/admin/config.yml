@@ -16,6 +16,14 @@ collections:
         fields:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Description", name: "description", widget: "string" }
+          - { label: "Showcase Title", name: "showcase_title", widget: "string" }
+          - { label: "Showcase Description", name: "showcase_description", widget: "text" }
+          - label: "Showcase Features"
+            name: "showcase_features"
+            widget: "list"
+            fields:
+              - { label: "Feature Name", name: "title", widget: "string" }
+              - { label: "Feature Description", name: "description", widget: "string" }
           - { label: "Body", name: "body", widget: "markdown" }
 
       - name: "about"
