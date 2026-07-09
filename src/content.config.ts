@@ -36,6 +36,13 @@ const pages = defineCollection({
     email: z.string().optional(),
     phone: z.string().optional(),
     hours: z.string().optional(),
+    expertise_title: z.string().optional(),
+    expertise_description: z.string().optional(),
+    expertise_items: z.array(z.object({
+      icon: z.string(),
+      title: z.string(),
+      description: z.string(),
+    })).optional(),
   }),
 });
 

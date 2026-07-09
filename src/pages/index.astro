@@ -15,6 +15,15 @@ const showcaseFeatures = homePage?.data.showcase_features || [
   { title: "AI Friendly", description: "Easily connect AI agents to draft and review pages." },
   { title: "Cloud Deploy", description: "Automatic instant deployment via Cloudflare." }
 ];
+
+// Expertise Section dynamic bindings
+const expertiseTitle = homePage?.data.expertise_title || "Our Core Expertise";
+const expertiseDescription = homePage?.data.expertise_description || "Custom software engineering and enterprise resource planning designed to scale your business.";
+const expertiseItems = homePage?.data.expertise_items || [
+  { icon: "⚙️", title: "Odoo Integration", description: "End-to-end Odoo implementation, custom module development, and database migrations for UK enterprises." },
+  { icon: "⚡", title: "Static-First Web", description: "Lightweight, SEO-optimized marketing websites built with Astro. Ship less JavaScript, rank higher on Google." },
+  { icon: "🤖", title: "AI & Automation", description: "Connecting your systems with AI agents and MCP workflows so you can draft and publish content automatically." }
+];
 ---
 
 <Layout>
@@ -99,28 +108,18 @@ const showcaseFeatures = homePage?.data.showcase_features || [
   <section class="features">
     <div class="container">
       <div class="section-title">
-        <h2>Our Core Expertise</h2>
-        <p>Custom software engineering and enterprise resource planning designed to scale your business.</p>
+        <h2>{expertiseTitle}</h2>
+        <p>{expertiseDescription}</p>
       </div>
       <div class="features-grid">
-        <div class="feature-card">
-          <div class="card-icon">⚙️</div>
-          <h3>Odoo Integration</h3>
-          <p>End-to-end Odoo implementation, custom module development, and database migrations for UK enterprises.</p>
-          <a href="/services" class="card-link">Learn More &rarr;</a>
-        </div>
-        <div class="feature-card">
-          <div class="card-icon">⚡</div>
-          <h3>Static-First Web</h3>
-          <p>Lightweight, SEO-optimized marketing websites built with Astro. Ship less JavaScript, rank higher on Google.</p>
-          <a href="/services" class="card-link">Learn More &rarr;</a>
-        </div>
-        <div class="feature-card">
-          <div class="card-icon">🤖</div>
-          <h3>AI & Automation</h3>
-          <p>Connecting your systems with AI agents and MCP workflows so you can draft and publish content automatically.</p>
-          <a href="/services" class="card-link">Learn More &rarr;</a>
-        </div>
+        {expertiseItems.map((item) => (
+          <div class="feature-card">
+            <div class="card-icon">{item.icon}</div>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+            <a href="/services" class="card-link">Learn More &rarr;</a>
+          </div>
+        ))}
       </div>
     </div>
   </section>
