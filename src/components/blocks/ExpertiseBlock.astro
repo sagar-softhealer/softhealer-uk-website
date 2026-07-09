@@ -1,0 +1,41 @@
+---
+interface Item {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+interface Props {
+  title?: string;
+  description?: string;
+  items?: Item[];
+}
+
+const { title, description, items } = Astro.props;
+
+const defaultItems = [
+  { icon: "⚙️", title: "Odoo Integration", description: "End-to-end Odoo implementation, custom module development, and database migrations for UK enterprises." },
+  { icon: "⚡", title: "Static-First Web", description: "Lightweight, SEO-optimized marketing websites built with Astro. Ship less JavaScript, rank higher on Google." },
+  { icon: "🤖", title: "AI & Automation", description: "Connecting your systems with AI agents and MCP workflows so you can draft and publish content automatically." }
+];
+
+const expertiseItems = items || defaultItems;
+---
+<section class="features">
+  <div class="container">
+    <div class="section-title">
+      <h2>{title || "Our Core Expertise"}</h2>
+      <p>{description || "Custom software engineering and enterprise resource planning designed to scale your business."}</p>
+    </div>
+    <div class="features-grid">
+      {expertiseItems.map((item) => (
+        <div class="feature-card">
+          <div class="card-icon">{item.icon}</div>
+          <h3>{item.title}</h3>
+          <p>{item.description}</p>
+          <a href="/services" class="card-link">Learn More &rarr;</a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

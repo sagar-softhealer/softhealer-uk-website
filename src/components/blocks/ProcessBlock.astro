@@ -1,0 +1,41 @@
+---
+interface Step {
+  number: string;
+  title: string;
+  description: string;
+}
+
+interface Props {
+  title?: string;
+  description?: string;
+  steps?: Step[];
+}
+
+const { title, description, steps } = Astro.props;
+
+const defaultSteps = [
+  { number: "01", title: "Discovery", description: "We analyze your business workflows, define bottlenecks, and outline Odoo ERP integration targets." },
+  { number: "02", title: "Design", description: "We design custom database models, layouts, and API flowcharts tailored to your requirements." },
+  { number: "03", title: "Development", description: "We write clean, audited modules and speed-optimized frontend interfaces using Astro." },
+  { number: "04", title: "Deployment", description: "We launch securely via Cloudflare Pages and provide dedicated SLA maintenance and support." }
+];
+
+const processSteps = steps || defaultSteps;
+---
+<section class="process">
+  <div class="container">
+    <div class="section-title animate-fade-in">
+      <h2>{title || "Our Working Process"}</h2>
+      <p>{description || "A structured, transparent roadmap from initial consultation to continuous delivery."}</p>
+    </div>
+    <div class="process-grid">
+      {processSteps.map((step, idx) => (
+        <div class={`process-step animate-fade-in delay-${(idx + 1) * 100}`}>
+          <div class="step-num">{step.number}</div>
+          <h3>{step.title}</h3>
+          <p>{step.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

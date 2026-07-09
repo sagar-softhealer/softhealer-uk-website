@@ -1,191 +1,36 @@
 ---
-import { getEntry, render } from 'astro:content';
+import { getEntry } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
+import HeroBlock from '../components/blocks/HeroBlock.astro';
+import StatsBlock from '../components/blocks/StatsBlock.astro';
+import ExpertiseBlock from '../components/blocks/ExpertiseBlock.astro';
+import ShowcaseBlock from '../components/blocks/ShowcaseBlock.astro';
+import ProcessBlock from '../components/blocks/ProcessBlock.astro';
+import CtaBlock from '../components/blocks/CtaBlock.astro';
 
 const homePage = await getEntry('pages', 'home');
-const { Content } = homePage ? await render(homePage) : { Content: null };
-const title = homePage?.data.title || "We Build High-Performance Digital Solutions";
-const description = homePage?.data.description || "Accelerate your business with custom Odoo ERP integrations, lightning-fast Astro websites, and seamless workflows tailored for the UK market.";
-
-// Showcase Section dynamic bindings
-const showcaseTitle = homePage?.data.showcase_title || "Streamline Your Workflows With Next-Gen CMS";
-const showcaseDescription = homePage?.data.showcase_description || "No backend servers, no complex databases to manage. We combine static-first frontend frameworks...";
-const showcaseFeatures = homePage?.data.showcase_features || [
-  { title: "Git-Based", description: "Content is saved directly as files in GitHub." },
-  { title: "AI Friendly", description: "Easily connect AI agents to draft and review pages." },
-  { title: "Cloud Deploy", description: "Automatic instant deployment via Cloudflare." }
-];
-
-// Expertise Section dynamic bindings
-const expertiseTitle = homePage?.data.expertise_title || "Our Core Expertise";
-const expertiseDescription = homePage?.data.expertise_description || "Custom software engineering and enterprise resource planning designed to scale your business.";
-const expertiseItems = homePage?.data.expertise_items || [
-  { icon: "⚙️", title: "Odoo Integration", description: "End-to-end Odoo implementation, custom module development, and database migrations for UK enterprises." },
-  { icon: "⚡", title: "Static-First Web", description: "Lightweight, SEO-optimized marketing websites built with Astro. Ship less JavaScript, rank higher on Google." },
-  { icon: "🤖", title: "AI & Automation", description: "Connecting your systems with AI agents and MCP workflows so you can draft and publish content automatically." }
-];
+const blocks = homePage?.data.blocks || [];
 ---
 
 <Layout>
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="container hero-container">
-      <div class="hero-content">
-        <span class="badge">Odoo & Web Specialists</span>
-        <h1>{title}</h1>
-        <p>{description}</p>
-        {Content && (
-          <div class="hero-body-content">
-            <Content />
-          </div>
-        )}
-        <div class="hero-actions">
-          <a href="/contact" class="btn btn-primary">Free Consultation</a>
-          <a href="/services" class="btn btn-secondary">Explore Services</a>
-        </div>
-      </div>
-      <div class="hero-visual">
-        <div class="visual-card main-card">
-          <div class="card-header">
-            <span class="dot red"></span>
-            <span class="dot yellow"></span>
-            <span class="dot green"></span>
-            <span class="title">Odoo Dashboard</span>
-          </div>
-          <div class="card-body">
-            <div class="bar-chart">
-              <div class="bar h-60"></div>
-              <div class="bar h-80"></div>
-              <div class="bar h-40"></div>
-              <div class="bar h-90"></div>
-            </div>
-            <div class="stats-row">
-              <div class="stat-item">
-                <span class="label">Conversion</span>
-                <span class="value">+24.5%</span>
-              </div>
-              <div class="stat-item">
-                <span class="label">Efficiency</span>
-                <span class="value">98.2%</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="visual-card floating-card">
-          <span class="icon">🚀</span>
-          <div>
-            <h4>Astro Speed</h4>
-            <p>100/100 Mobile Score</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Stats Section -->
-  <section class="stats">
-    <div class="container stats-grid">
-      <div class="stat-box">
-        <h3><span class="counter" data-target="50">0</span>+</h3>
-        <p>Successful Odoo Deployments</p>
-      </div>
-      <div class="stat-box">
-        <h3><span class="counter" data-target="99">0</span>%</h3>
-        <p>Client Satisfaction Rate</p>
-      </div>
-      <div class="stat-box">
-        <h3><span class="counter" data-target="10">0</span>x</h3>
-        <p>Faster Page Load Speeds</p>
-      </div>
-      <div class="stat-box">
-        <h3><span class="counter" data-target="24">0</span>/7</h3>
-        <p>Dedicated Support & SLA</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Core Services Overview Grid -->
-  <section class="features">
-    <div class="container">
-      <div class="section-title">
-        <h2>{expertiseTitle}</h2>
-        <p>{expertiseDescription}</p>
-      </div>
-      <div class="features-grid">
-        {expertiseItems.map((item) => (
-          <div class="feature-card">
-            <div class="card-icon">{item.icon}</div>
-            <h3>{item.title}</h3>
-            <p>{item.description}</p>
-            <a href="/services" class="card-link">Learn More &rarr;</a>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Showcase Section -->
-  <section class="showcase">
-    <div class="container showcase-grid">
-      <div class="showcase-content">
-        <h2>{showcaseTitle}</h2>
-        <p>{showcaseDescription}</p>
-        <ul class="showcase-list">
-          {showcaseFeatures.map((feat) => (
-            <li><strong>{feat.title}:</strong> {feat.description}</li>
-          ))}
-        </ul>
-      </div>
-      <div class="showcase-graphic">
-        <div class="graphic-element doc-icon">📄</div>
-        <div class="graphic-element arrow">&rarr;</div>
-        <div class="graphic-element git-icon">🐙</div>
-        <div class="graphic-element arrow">&rarr;</div>
-        <div class="graphic-element cloud-icon">☁️</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Working Process Section -->
-  <section class="process">
-    <div class="container">
-      <div class="section-title animate-fade-in">
-        <h2>Our Working Process</h2>
-        <p>A structured, transparent roadmap from initial consultation to continuous delivery.</p>
-      </div>
-      <div class="process-grid">
-        <div class="process-step animate-fade-in delay-100">
-          <div class="step-num">01</div>
-          <h3>Discovery</h3>
-          <p>We analyze your business workflows, define bottlenecks, and outline Odoo ERP integration targets.</p>
-        </div>
-        <div class="process-step animate-fade-in delay-200">
-          <div class="step-num">02</div>
-          <h3>Design</h3>
-          <p>We design custom database models, layouts, and API flowcharts tailored to your requirements.</p>
-        </div>
-        <div class="process-step animate-fade-in delay-300">
-          <div class="step-num">03</div>
-          <h3>Development</h3>
-          <p>We write clean, audited modules and speed-optimized frontend interfaces using Astro.</p>
-        </div>
-        <div class="process-step animate-fade-in delay-400">
-          <div class="step-num">04</div>
-          <h3>Deployment</h3>
-          <p>We launch securely via Cloudflare Pages and provide dedicated SLA maintenance and support.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Call to Action Section -->
-  <section class="cta">
-    <div class="container cta-container">
-      <h2>Ready to transform your digital presence?</h2>
-      <p>Schedule a 30-minute discovery call with our UK-based consultants to discuss your Odoo or web development roadmap.</p>
-      <a href="/contact" class="btn btn-secondary">Get Free Estimate</a>
-    </div>
-  </section>
+  {blocks.map((block) => {
+    switch (block._type) {
+      case 'hero':
+        return <HeroBlock {...block} />;
+      case 'stats':
+        return <StatsBlock {...block} />;
+      case 'expertise':
+        return <ExpertiseBlock {...block} />;
+      case 'showcase':
+        return <ShowcaseBlock {...block} />;
+      case 'process':
+        return <ProcessBlock {...block} />;
+      case 'cta':
+        return <CtaBlock {...block} />;
+      default:
+        return null;
+    }
+  })}
 
   <!-- Stats Counting Animation Script -->
   <script>

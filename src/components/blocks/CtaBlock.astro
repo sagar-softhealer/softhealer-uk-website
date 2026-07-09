@@ -1,0 +1,16 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  button_text?: string;
+}
+
+const { title, description, button_text } = Astro.props;
+---
+<section class="cta">
+  <div class="container cta-container">
+    <h2>{title || "Ready to transform your digital presence?"}</h2>
+    <p>{description || "Schedule a 30-minute discovery call with our UK-based consultants to discuss your Odoo or web development roadmap."}</p>
+    <a href="/contact" class="btn btn-secondary">{button_text || "Get Free Estimate"}</a>
+  </div>
+</section>

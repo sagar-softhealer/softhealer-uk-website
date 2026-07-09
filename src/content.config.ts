@@ -43,6 +43,7 @@ const pages = defineCollection({
       title: z.string(),
       description: z.string(),
     })).optional(),
+    blocks: z.array(z.any()).optional(),
   }),
 });
 

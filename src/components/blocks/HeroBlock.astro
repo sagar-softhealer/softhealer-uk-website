@@ -1,0 +1,56 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+<section class="hero">
+  <div class="container hero-container">
+    <div class="hero-content">
+      <span class="badge">Odoo & Web Specialists</span>
+      <h1>{title || "We Build High-Performance Digital Solutions"}</h1>
+      <p>{description || "Accelerate your business with custom Odoo ERP integrations, lightning-fast Astro websites, and seamless workflows tailored for the UK market."}</p>
+      <div class="hero-actions">
+        <a href="/contact" class="btn btn-primary">Free Consultation</a>
+        <a href="/services" class="btn btn-secondary">Explore Services</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="visual-card main-card">
+        <div class="card-header">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+          <span class="title">Odoo Dashboard</span>
+        </div>
+        <div class="card-body">
+          <div class="bar-chart">
+            <div class="bar h-60"></div>
+            <div class="bar h-80"></div>
+            <div class="bar h-40"></div>
+            <div class="bar h-90"></div>
+          </div>
+          <div class="stats-row">
+            <div class="stat-item">
+              <span class="label">Conversion</span>
+              <span class="value">+24.5%</span>
+            </div>
+            <div class="stat-item">
+              <span class="label">Efficiency</span>
+              <span class="value">98.2%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="visual-card floating-card">
+        <span class="icon">🚀</span>
+        <div>
+          <h4>Astro Speed</h4>
+          <p>100/100 Mobile Score</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

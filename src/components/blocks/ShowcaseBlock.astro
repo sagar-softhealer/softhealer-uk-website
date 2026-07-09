@@ -1,0 +1,42 @@
+---
+interface Feature {
+  title: string;
+  description: string;
+}
+
+interface Props {
+  title?: string;
+  description?: string;
+  features?: Feature[];
+}
+
+const { title, description, features } = Astro.props;
+
+const defaultFeatures = [
+  { title: "Git-Based", description: "Content is saved directly as files in GitHub." },
+  { title: "AI Friendly", description: "Easily connect AI agents to draft and review pages." },
+  { title: "Cloud Deploy", description: "Automatic instant deployment via Cloudflare." }
+];
+
+const showcaseFeatures = features || defaultFeatures;
+---
+<section class="showcase">
+  <div class="container showcase-grid">
+    <div class="showcase-content">
+      <h2>{title || "Streamline Your Workflows With Next-Gen CMS"}</h2>
+      <p>{description || "No backend servers, no complex databases to manage. We combine static-first frontend frameworks with Git-based Headless CMS (like Sveltia and Decap) to provide non-technical editors with a Microsoft Word-like writing experience."}</p>
+      <ul class="showcase-list">
+        {showcaseFeatures.map((feat) => (
+          <li><strong>{feat.title}:</strong> {feat.description}</li>
+        ))}
+      </ul>
+    </div>
+    <div class="showcase-graphic">
+      <div class="graphic-element doc-icon">📄</div>
+      <div class="graphic-element arrow">&rarr;</div>
+      <div class="graphic-element git-icon">🐙</div>
+      <div class="graphic-element arrow">&rarr;</div>
+      <div class="graphic-element cloud-icon">☁️</div>
+    </div>
+  </div>
+</section>

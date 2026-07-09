@@ -49,3 +49,85 @@ collections_config:
     output: true
     icon: star
     disable_url: true
+
+_structures:
+  homepage_blocks:
+    values:
+      - label: Hero Section
+        value:
+          _type: hero
+          title: Transform Your Digital Infrastructure
+          description: Expert Odoo ERP implementations and modern web applications built for UK businesses.
+      - label: Stats Counters
+        value:
+          _type: stats
+          stats_list:
+            - number: "50"
+              suffix: "+"
+              label: Successful Odoo Deployments
+            - number: "99"
+              suffix: "%"
+              label: Client Satisfaction Rate
+            - number: "10"
+              suffix: "x"
+              label: Faster Page Load Speeds
+            - number: "24"
+              suffix: "/7"
+              label: Dedicated Support & SLA
+      - label: Core Expertise
+        value:
+          _type: expertise
+          title: Our Core Expertise
+          description: Custom software engineering and enterprise resource planning designed to scale your business.
+          items:
+            - icon: "⚙️"
+              title: Odoo Integration
+              description: End-to-end Odoo implementation, custom module development, and database migrations for UK enterprises.
+            - icon: "⚡"
+              title: Static-First Web
+              description: Lightweight, SEO-optimized marketing websites built with Astro. Ship less JavaScript, rank higher on Google.
+            - icon: "🤖"
+              title: AI & Automation
+              description: Connecting your systems with AI agents and MCP workflows so you can draft and publish content automatically.
+      - label: Showcase Feature
+        value:
+          _type: showcase
+          title: Streamline Your Workflows With Next-Gen CMS
+          description: No backend servers, no complex databases to manage. We combine static-first frontend frameworks with Git-based Headless CMS (like Sveltia and Decap) to provide non-technical editors with a Microsoft Word-like writing experience.
+          features:
+            - title: Git-Based
+              description: Content is saved directly as files in GitHub.
+            - title: AI Friendly
+              description: Easily connect AI agents to draft and review pages.
+            - title: Cloud Deploy
+              description: Automatic instant deployment via Cloudflare.
+      - label: Working Process
+        value:
+          _type: process
+          title: Our Working Process
+          description: A structured, transparent roadmap from initial consultation to continuous delivery.
+          steps:
+            - number: "01"
+              title: Discovery
+              description: We analyze your business workflows, define bottlenecks, and outline Odoo ERP integration targets.
+            - number: "02"
+              title: Design
+              description: We design custom database models, layouts, and API flowcharts tailored to your requirements.
+            - number: "03"
+              title: Development
+              description: We write clean, audited modules and speed-optimized frontend interfaces using Astro.
+            - number: "04"
+              title: Deployment
+              description: We launch securely via Cloudflare Pages and provide dedicated SLA maintenance and support.
+      - label: CTA Banner
+        value:
+          _type: cta
+          title: Ready to transform your digital presence?
+          description: Schedule a 30-minute discovery call with our UK-based consultants to discuss your Odoo or web development roadmap.
+          button_text: Get Free Estimate
+
+_inputs:
+  blocks:
+    type: array
+    options:
+      structures: homepage_blocks

@@ -1,0 +1,32 @@
+---
+interface Stat {
+  number: string;
+  suffix?: string;
+  label: string;
+}
+
+interface Props {
+  stats_list?: Stat[];
+}
+
+const { stats_list } = Astro.props;
+
+const defaultStats = [
+  { number: "50", suffix: "+", label: "Successful Odoo Deployments" },
+  { number: "99", suffix: "%", label: "Client Satisfaction Rate" },
+  { number: "10", suffix: "x", label: "Faster Page Load Speeds" },
+  { number: "24", suffix: "/7", label: "Dedicated Support & SLA" }
+];
+
+const stats = stats_list || defaultStats;
+---
+<section class="stats">
+  <div class="container stats-grid">
+    {stats.map((stat) => (
+      <div class="stat-box">
+        <h3><span class="counter" data-target={stat.number}>0</span>{stat.suffix || ""}</h3>
+        <p>{stat.label}</p>
+      </div>
+    ))}
+  </div>
+</section>
