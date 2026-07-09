@@ -7,39 +7,45 @@ collections_config:
     path: src/content/pages
     output: true
     icon: description
-  
+
   blogs:
     name: Blog Posts
     path: src/content/blogs
     output: true
     icon: article
+    url: "/blog/[slug]/"
 
   careers:
     name: Careers
     path: src/content/careers
     output: true
     icon: work
+    disable_url: true
 
   portfolios:
     name: Portfolios
     path: src/content/portfolios
     output: true
     icon: business
+    disable_url: true
 
   team:
     name: Team Members
     path: src/content/team
     output: true
     icon: people
+    disable_url: true
 
   faq:
     name: FAQs
     path: src/content/faq
     output: true
     icon: help
+    disable_url: true
 
   testimonials:
     name: Testimonials
     path: src/content/testimonials
     output: true
     icon: star
+    disable_url: true

@@ -1,6 +1,7 @@
 ---
 title: Transform Your Digital Infrastructure.  TEST ====
 description: Expert Odoo ERP implementations and modern web applications built for UK businesses.
+url: "/"
 showcase_title: Streamline Your Workflows With Next-Gen CMS
 showcase_description: No backend servers, no complex databases to manage. We combine static-first frontend frameworks with Git-based Headless CMS (like Sveltia and Decap) to provide non-technical editors with a Microsoft Word-like writing experience.
 showcase_features:

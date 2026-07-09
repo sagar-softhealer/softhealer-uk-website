@@ -1,6 +1,7 @@
 ---
 title: "Our Professional Services"
 description: "Tailored enterprise software, modern web portals, and system integrations designed to fuel your business growth."
+url: "/services/"
 services:
   - icon: "💼"
     title: "Odoo Implementation & Consulting"

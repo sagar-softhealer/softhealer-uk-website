@@ -3,6 +3,7 @@ title: About Softhealer UK
 description: >-
   Pioneering robust Odoo implementation, customization, and modern web
   application development.
+url: "/about/"
 story_title: Driving Business Automation Across the UK
 story_body: >
   Softhealer UK is a premier technology consulting firm specializing in
