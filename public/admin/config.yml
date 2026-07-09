@@ -32,6 +32,21 @@ collections:
         fields:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Description", name: "description", widget: "string" }
+          - { label: "Story Title", name: "story_title", widget: "string" }
+          - { label: "Story Body", name: "story_body", widget: "text" }
+          - label: "Stats Counters"
+            name: "stats"
+            widget: "list"
+            fields:
+              - { label: "Stat Number", name: "number", widget: "string" }
+              - { label: "Stat Label", name: "label", widget: "string" }
+          - label: "Core Values"
+            name: "values"
+            widget: "list"
+            fields:
+              - { label: "Icon Emoji", name: "icon", widget: "string" }
+              - { label: "Value Title", name: "title", widget: "string" }
+              - { label: "Value Description", name: "description", widget: "string" }
           - { label: "Body", name: "body", widget: "markdown" }
 
       - name: "services"
@@ -40,6 +55,17 @@ collections:
         fields:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Description", name: "description", widget: "string" }
+          - label: "Services Catalog"
+            name: "services"
+            widget: "list"
+            fields:
+              - { label: "Service Icon Emoji", name: "icon", widget: "string" }
+              - { label: "Service Title", name: "title", widget: "string" }
+              - { label: "Service Description", name: "description", widget: "text" }
+              - label: "Features List"
+                name: "features"
+                widget: "list"
+                field: { label: "Feature", name: "feature", widget: "string" }
           - { label: "Body", name: "body", widget: "markdown" }
 
       - name: "contact"

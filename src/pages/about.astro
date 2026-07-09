@@ -1,5 +1,14 @@
 ---
+import { getEntry } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
+
+const aboutPage = await getEntry('pages', 'about');
+const title = aboutPage?.data.title || "About Softhealer UK";
+const description = aboutPage?.data.description || "Pioneering robust Odoo implementation, customization, and modern web application development.";
+const storyTitle = aboutPage?.data.story_title || "Driving Business Automation Across the UK";
+const storyBody = aboutPage?.data.story_body || "";
+const stats = aboutPage?.data.stats || [];
+const values = aboutPage?.data.values || [];
 ---
 
 <Layout>
@@ -7,8 +16,8 @@ import Layout from '../layouts/Layout.astro';
   <section class="page-header">
     <div class="container header-container animate-fade-in">
       <span class="sub-title">Who We Are</span>
-      <h1>About Softhealer UK</h1>
-      <p>Pioneering robust Odoo implementation, customization, and modern web application development.</p>
+      <h1>{title}</h1>
+      <p>{description}</p>
     </div>
   </section>
 
@@ -16,27 +25,16 @@ import Layout from '../layouts/Layout.astro';
   <section class="about-story">
     <div class="container story-grid">
       <div class="story-content animate-fade-in">
-        <h2>Driving Business Automation Across the UK</h2>
-        <p>Softhealer UK is a premier technology consulting firm specializing in customized Enterprise Resource Planning (ERP) integrations and cloud-native web engineering. We help organizations streamline operations, eliminate data silos, and scale efficiently.</p>
-        <p>Whether you are a growing mid-sized distributor in London, a manufacturing plant in Birmingham, or an e-commerce startup looking to automate order fulfillment, our local consultants analyze your workflows and design tailored solutions using Odoo's powerful suite.</p>
+        <h2>{storyTitle}</h2>
+        {storyBody.split('\n\n').map(p => p.trim() && <p>{p}</p>)}
       </div>
       <div class="story-stats">
-        <div class="stat-card animate-fade-in delay-100">
-          <span class="number"><span class="counter" data-target="10">0</span>+</span>
-          <span class="label">Years of ERP Experience</span>
-        </div>
-        <div class="stat-card animate-fade-in delay-200">
-          <span class="number"><span class="counter" data-target="150">0</span>+</span>
-          <span class="label">Custom Modules Created</span>
-        </div>
-        <div class="stat-card animate-fade-in delay-300">
-          <span class="number"><span class="counter" data-target="99">0</span>%</span>
-          <span class="label">On-Time SLA Delivery</span>
-        </div>
-        <div class="stat-card animate-fade-in delay-400">
-          <span class="number"><span class="counter" data-target="50">0</span>+</span>
-          <span class="label">Active Enterprise Clients</span>
-        </div>
+        {stats.map((stat, idx) => (
+          <div class={`stat-card animate-fade-in delay-${(idx + 1) * 100}`}>
+            <span class="number"><span class="counter" data-target={stat.number}>0</span>+</span>
+            <span class="label">{stat.label}</span>
+          </div>
+        ))}
       </div>
     </div>
   </section>
@@ -49,21 +47,13 @@ import Layout from '../layouts/Layout.astro';
         <p>The principles that guide our team and define our relationships with clients.</p>
       </div>
       <div class="values-grid">
-        <div class="value-card animate-fade-in delay-100">
-          <div class="value-icon">🤝</div>
-          <h3>Customer First</h3>
-          <p>We work as an extension of your internal team, understanding your specific business model and pain points before writing a single line of code.</p>
-        </div>
-        <div class="value-card animate-fade-in delay-200">
-          <div class="value-icon">💎</div>
-          <h3>Uncompromised Quality</h3>
-          <p>We write clean, documented, and fully tested Odoo modules and web code that follow international coding standards and pass strict security audits.</p>
-        </div>
-        <div class="value-card animate-fade-in delay-300">
-          <div class="value-icon">🚀</div>
-          <h3>Continuous Innovation</h3>
-          <p>We stay at the forefront of modern web engineering (like Astro) and artificial intelligence workflows (like MCP and automated content drafting).</p>
-        </div>
+        {values.map((val, idx) => (
+          <div class={`value-card animate-fade-in delay-${(idx + 1) * 100}`}>
+            <div class="value-icon">{val.icon}</div>
+            <h3>{val.title}</h3>
+            <p>{val.description}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>

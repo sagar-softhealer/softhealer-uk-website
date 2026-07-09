@@ -13,6 +13,23 @@ const pages = defineCollection({
       title: z.string(),
       description: z.string(),
     })).optional(),
+    story_title: z.string().optional(),
+    story_body: z.string().optional(),
+    stats: z.array(z.object({
+      number: z.string(),
+      label: z.string(),
+    })).optional(),
+    values: z.array(z.object({
+      icon: z.string(),
+      title: z.string(),
+      description: z.string(),
+    })).optional(),
+    services: z.array(z.object({
+      icon: z.string(),
+      title: z.string(),
+      description: z.string(),
+      features: z.array(z.string()).optional(),
+    })).optional(),
   }),
 });
 

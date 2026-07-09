@@ -1,5 +1,11 @@
 ---
+import { getEntry } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
+
+const servicesPage = await getEntry('pages', 'services');
+const title = servicesPage?.data.title || "Our Professional Services";
+const description = servicesPage?.data.description || "Tailored enterprise software, modern web portals, and system integrations designed to fuel your business growth.";
+const services = servicesPage?.data.services || [];
 ---
 
 <Layout>
@@ -7,8 +13,8 @@ import Layout from '../layouts/Layout.astro';
   <section class="page-header">
     <div class="container header-container animate-fade-in">
       <span class="sub-title">What We Do</span>
-      <h1>Our Professional Services</h1>
-      <p>Tailored enterprise software, modern web portals, and system integrations designed to fuel your business growth.</p>
+      <h1>{title}</h1>
+      <p>{description}</p>
     </div>
   </section>
 
@@ -16,67 +22,22 @@ import Layout from '../layouts/Layout.astro';
   <section class="services-catalog">
     <div class="container">
       <div class="services-grid">
-        <!-- Service 1 -->
-        <div class="service-card animate-fade-in delay-100">
-          <span class="icon">💼</span>
-          <h3>Odoo Implementation & Consulting</h3>
-          <p>We guide you through the complete ERP lifecycle. From gap analysis and system mapping to migration and live go-live support, we ensure a seamless integration of Odoo modules.</p>
-          <ul class="bullet-list">
-            <li>Sales, CRM, & Pipeline automation</li>
-            <li>Inventory, Warehousing & Barcode systems</li>
-            <li>Accounting configuration & UK VAT compliance</li>
-          </ul>
-        </div>
+        {services.map((service, idx) => (
+          <div class={`service-card animate-fade-in delay-${((idx % 3) + 1) * 100}`}>
+            <span class="icon">{service.icon}</span>
+            <h3>{service.title}</h3>
+            <p>{service.description}</p>
+            {service.features && (
+              <ul class="bullet-list">
+                {service.features.map((feat) => (
+                  <li>{feat}</li>
+                ))}
+              </ul>
+            )}
+          </div>
+        ))}
 
-        <!-- Service 2 -->
-        <div class="service-card animate-fade-in delay-200">
-          <span class="icon">💻</span>
-          <h3>Custom Module Development</h3>
-          <p>Standard Odoo modules don't always fit unique operational workflows. We build custom Python apps and configure Odoo views to automate manual workarounds.</p>
-          <ul class="bullet-list">
-            <li>Bespoke reporting engine models</li>
-            <li>Automated business rules and actions</li>
-            <li>UI enhancements and Kanban alterations</li>
-          </ul>
-        </div>
-
-        <!-- Service 3 -->
-        <div class="service-card animate-fade-in delay-300">
-          <span class="icon">⚡</span>
-          <h3>Modern Astro Frontends</h3>
-          <p>We build extremely lightweight, static-first websites using Astro. We deliver blazing-fast page load times and perfect Core Web Vitals to improve search ranking.</p>
-          <ul class="bullet-list">
-            <li>SEO-friendly landing pages and corporate sites</li>
-            <li>Decoupled headless CMS (Decap / Sveltia)</li>
-            <li>Custom interactive calculators and forms</li>
-          </ul>
-        </div>
-
-        <!-- Service 4 -->
-        <div class="service-card animate-fade-in delay-100">
-          <span class="icon">🔌</span>
-          <h3>API & Payment Integrations</h3>
-          <p>We connect Odoo to third-party services like Stripe, PayPal, HubSpot, WooCommerce, Shopify, or local UK shipping carriers like Royal Mail and DPD.</p>
-          <ul class="bullet-list">
-            <li>Secure tokenized payment gateways</li>
-            <li>Bi-directional inventory sync modules</li>
-            <li>RESTful API custom middleware</li>
-          </ul>
-        </div>
-
-        <!-- Service 5 -->
-        <div class="service-card animate-fade-in delay-200">
-          <span class="icon">🤖</span>
-          <h3>AI Agent Content Workflows</h3>
-          <p>Leverage the power of generative AI and Model Context Protocol (MCP) to manage your web content, automate support queries, or draft blog posts directly to your GitHub repo.</p>
-          <ul class="bullet-list">
-            <li>GitHub MCP server integration</li>
-            <li>AI content drafting and editor preview</li>
-            <li>Automated web publication pipelines</li>
-          </ul>
-        </div>
-
-        <!-- Service 6 -->
+        <!-- Consultation Card -->
         <div class="service-card consultation-card animate-fade-in delay-300">
           <h3>Need a custom solution?</h3>
           <p>Get a direct consultation with one of our principal architects to design a bespoke software stack for your business.</p>
