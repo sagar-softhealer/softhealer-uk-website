@@ -30,6 +30,12 @@ const pages = defineCollection({
       description: z.string(),
       features: z.array(z.string()).optional(),
     })).optional(),
+    info_title: z.string().optional(),
+    info_description: z.string().optional(),
+    location: z.string().optional(),
+    email: z.string().optional(),
+    phone: z.string().optional(),
+    hours: z.string().optional(),
   }),
 });
 

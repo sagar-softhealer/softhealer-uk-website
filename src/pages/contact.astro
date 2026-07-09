@@ -1,5 +1,16 @@
 ---
+import { getEntry } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
+
+const contactPage = await getEntry('pages', 'contact');
+const title = contactPage?.data.title || "Start Your Journey";
+const description = contactPage?.data.description || "Have questions about Odoo customization or modern website deployment? Fill out the form and our consultants will get back to you within 24 hours.";
+const infoTitle = contactPage?.data.info_title || "Get in Touch Directly";
+const infoDescription = contactPage?.data.info_description || "We support UK-based businesses with onsite consultations in London and the Midlands, or remote support worldwide.";
+const location = contactPage?.data.location || "Level 3, 207 Regent Street, London, W1B 3HH";
+const email = contactPage?.data.email || "info@softhealer.co.uk";
+const phone = contactPage?.data.phone || "+44 20 7946 0192";
+const hours = contactPage?.data.hours || "Monday - Friday: 9:00 AM - 5:30 PM (BST)";
 ---
 
 <Layout>
@@ -7,8 +18,8 @@ import Layout from '../layouts/Layout.astro';
   <section class="page-header">
     <div class="container header-container animate-fade-in">
       <span class="sub-title">Connect With Us</span>
-      <h1>Start Your Journey</h1>
-      <p>Have questions about Odoo customization or modern website deployment? Fill out the form and our consultants will get back to you within 24 hours.</p>
+      <h1>{title}</h1>
+      <p>{description}</p>
     </div>
   </section>
 
@@ -17,36 +28,36 @@ import Layout from '../layouts/Layout.astro';
     <div class="container contact-grid">
       <!-- Contact Information Panel -->
       <div class="contact-info-panel animate-fade-in">
-        <h2>Get in Touch Directly</h2>
-        <p class="panel-desc">We support UK-based businesses with onsite consultations in London and the Midlands, or remote support worldwide.</p>
+        <h2>{infoTitle}</h2>
+        <p class="panel-desc">{infoDescription}</p>
         
         <div class="info-list">
           <div class="info-item">
             <span class="icon">📍</span>
             <div>
               <h4>Our Location</h4>
-              <p>Level 3, 207 Regent Street, London, W1B 3HH</p>
+              <p>{location}</p>
             </div>
           </div>
           <div class="info-item">
             <span class="icon">✉️</span>
             <div>
               <h4>Email Address</h4>
-              <p><a href="mailto:info@softhealer.co.uk">info@softhealer.co.uk</a></p>
+              <p><a href={`mailto:${email}`}>{email}</a></p>
             </div>
           </div>
           <div class="info-item">
             <span class="icon">📞</span>
             <div>
               <h4>Phone Number</h4>
-              <p><a href="tel:+442079460192">+44 20 7946 0192</a></p>
+              <p><a href={`tel:${phone.replace(/\s+/g, '')}`}>{phone}</a></p>
             </div>
           </div>
           <div class="info-item">
             <span class="icon">🕒</span>
             <div>
               <h4>Office Hours</h4>
-              <p>Monday - Friday: 9:00 AM - 5:30 PM (BST)</p>
+              <p>{hours}</p>
             </div>
           </div>
         </div>
