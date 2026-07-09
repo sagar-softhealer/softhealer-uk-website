@@ -1,5 +1,11 @@
 ---
+import { getEntry, render } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
+
+const homePage = await getEntry('pages', 'home');
+const { Content } = homePage ? await render(homePage) : { Content: null };
+const title = homePage?.data.title || "We Build High-Performance Digital Solutions";
+const description = homePage?.data.description || "Accelerate your business with custom Odoo ERP integrations, lightning-fast Astro websites, and seamless workflows tailored for the UK market.";
 ---
 
 <Layout>
@@ -8,8 +14,13 @@ import Layout from '../layouts/Layout.astro';
     <div class="container hero-container">
       <div class="hero-content">
         <span class="badge">Odoo & Web Specialists</span>
-        <h1>We Build High-Performance Digital Solutions</h1>
-        <p>Accelerate your business with custom Odoo ERP integrations, lightning-fast Astro websites, and seamless workflows tailored for the UK market.</p>
+        <h1>{title}</h1>
+        <p>{description}</p>
+        {Content && (
+          <div class="hero-body-content">
+            <Content />
+          </div>
+        )}
         <div class="hero-actions">
           <a href="/contact" class="btn btn-primary">Free Consultation</a>
           <a href="/services" class="btn btn-secondary">Explore Services</a>
@@ -271,11 +282,15 @@ import Layout from '../layouts/Layout.astro';
     }
   }
 
-  .hero-content p {
+  .hero-content p, .hero-body-content {
     font-size: 1.2rem;
     color: var(--text-muted);
-    margin-bottom: 32px;
+    margin-bottom: 24px;
     max-width: 560px;
+  }
+
+  .hero-body-content {
+    margin-bottom: 32px;
   }
 
   .hero-actions {
