@@ -1,3 +1,4 @@
+// Trigger build with Cloudflare env variables
 import { initPlasmicLoader } from "@plasmicapp/loader-react";
 
 export const PLASMIC = initPlasmicLoader({
