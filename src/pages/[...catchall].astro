@@ -1,7 +1,7 @@
 ---
 import { PLASMIC } from '../lib/plasmic';
 import Layout from '../layouts/Layout.astro';
-import { PlasmicComponent } from '@plasmicapp/loader-react';
+import PlasmicPage from '../components/PlasmicPage';
 
 export async function getStaticPaths() {
   try {
@@ -29,8 +29,8 @@ if (plasmicData) {
 
 <Layout>
   {plasmicData && (
-    <PlasmicComponent
-      component={plasmicData.name}
+    <PlasmicPage
+      plasmicData={plasmicData}
       prefetchedData={prefetchedData}
     />
   )}
