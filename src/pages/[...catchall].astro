@@ -1,0 +1,37 @@
+---
+import { PLASMIC } from '../lib/plasmic';
+import Layout from '../layouts/Layout.astro';
+import { PlasmicComponent } from '@plasmicapp/loader-react';
+
+export async function getStaticPaths() {
+  try {
+    const pages = await PLASMIC.fetchPages();
+    return pages.map((page) => ({
+      params: {
+        catchall: page.path === '/' ? undefined : page.path.replace(/^\//, ''),
+      },
+      props: {
+        plasmicData: page,
+      }
+    }));
+  } catch (error) {
+    console.warn("Could not fetch Plasmic pages:", error);
+    return [];
+  }
+}
+
+const { plasmicData } = Astro.props;
+let prefetchedData = null;
+if (plasmicData) {
+  prefetchedData = await PLASMIC.maybeFetchComponentData(plasmicData.path);
+}
+---
+
+<Layout>
+  {plasmicData && (
+    <PlasmicComponent
+      component={plasmicData.name}
+      prefetchedData={prefetchedData}
+    />
+  )}
+</Layout>
