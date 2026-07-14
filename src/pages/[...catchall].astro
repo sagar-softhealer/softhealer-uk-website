@@ -1,6 +1,6 @@
 ---
 import { PLASMIC } from '../lib/plasmic';
-import Layout from '../layouts/Layout.astro';
+import PlasmicLayout from '../layouts/PlasmicLayout.astro';
 import PlasmicPage from '../components/PlasmicPage';
 
 export async function getStaticPaths() {
@@ -27,11 +27,11 @@ if (plasmicData) {
 }
 ---
 
-<Layout>
+<PlasmicLayout>
   {plasmicData && (
     <PlasmicPage
       plasmicData={plasmicData}
       prefetchedData={prefetchedData}
     />
   )}
-</Layout>
+</PlasmicLayout>
